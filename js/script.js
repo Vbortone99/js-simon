@@ -13,5 +13,12 @@
 
 simonSays();
 function simonSays(){
+    const min = 1;
+    const max = 100;
 
+    // elementi da indovinare
+    const numbersToGuess = [];
+
+    // Set Timer 
+    const timer = 3000;
 }
