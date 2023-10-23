@@ -23,6 +23,8 @@ function simonSays(){
     const timer = 3000;
     const row = document.querySelector('.row');
     row.innerHTML= "";
+    const results = document.getElementById('results');
+    results.innerHTML = '';
 
     // Visualizzare i numeri nella pagina e poi far si che siano da indovinare
     while(numbersToGuess.length < 5){
@@ -55,7 +57,7 @@ function simonSays(){
     };
     
     // TIMEOUT PER UTENTE
-    setTimeout(timer)
+    setTimeout(tryToGuess,timer)
 
     //Creare una funzione per i numeri da indovinare dall'utente
     function tryToGuess(){
@@ -68,7 +70,7 @@ function simonSays(){
         }
         // Crea un bottone
         const btn = document.createElement('button');
-        btn.className.add('btn btn-success');
+        btn.className = 'btn btn-success';
         btn.innerText = 'Enter the numbers displayed';
         btn.addEventListener('click', function(){
             let userNumbersInput = document.getElementsByClassName('form-control');
@@ -84,6 +86,25 @@ function simonSays(){
     };
 
     function compare(numbersToGuess,userNumbers){
-        
-    }
-}
+        console.log(numbersToGuess);
+        console.log(userNumbers);
+        const guessedNumbers = [];
+        for(let i = 0; i < userNumbers.length; i++){
+            if(numbersToGuess.includes(userNumbers[i])){
+                guessedNumbers.push(userNumbers[i])
+            }
+        }
+        return guessedNumbers;
+    };
+
+    function printResult(guessedNumbers,numbersToGuess,container){
+        container.innerHTML = '';
+        container.innerHTML = `<h3>You guess ${guessedNumbers.length} of ${numbersToGuess.length} numbers: ${guessedNumbers}</h3>`;
+        const btn = document.createElement('button');
+        btn.addEventListener('click', simonSays);
+        container.append(btn);
+    };
+    function getRndInteger(min,max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    };
+};
