@@ -68,6 +68,22 @@ function simonSays(){
         }
         // Crea un bottone
         const btn = document.createElement('button');
+        btn.className.add('btn btn-success');
+        btn.innerText = 'Enter the numbers displayed';
+        btn.addEventListener('click', function(){
+            let userNumbersInput = document.getElementsByClassName('form-control');
+            for(let i = 0; i < userNumbersInput.length; i++){
+                if(!isNaN(parseInt(userNumbersInput[i].value))){
+                    userNumbers.push(parseInt(userNumbersInput[i].value));
+                }
+            }
+            const guessedNumbers = compare(numbersToGuess,userNumbers);
+            printResult(guessedNumbers,numbersToGuess,results);
+        })
+        results.append(btn);
+    };
+
+    function compare(numbersToGuess,userNumbers){
         
     }
 }
