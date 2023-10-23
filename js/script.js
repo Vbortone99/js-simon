@@ -44,5 +44,14 @@ function simonSays(){
      */
     function drawCol(num){
         const col = document.createElement('div');
-    }
+        col.classList.add('col');
+        // Inserisci il template 
+        col.innerHTML = `
+        <div class="card d-flex justify-content-center align-items-center display-3">
+        ${num}
+        </div>
+        `;
+        return col;
+    };
+    
 }
