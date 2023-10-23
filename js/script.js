@@ -54,4 +54,20 @@ function simonSays(){
         return col;
     };
     
+    // TIMEOUT PER UTENTE
+    setTimeout(timer)
+
+    //Creare una funzione per i numeri da indovinare dall'utente
+    function tryToGuess(){
+        // numeri utente vuoto
+        const userNumbers = [];
+        // Crea e Inserisci le card per i numeri
+        const cards = document.getElementsByClassName('card');
+        for(let i = 0; i < cards.length; i++){
+            cards[i].innerHTML = `<input type="text" class="form-control">`;
+        }
+        // Crea un bottone
+        const btn = document.createElement('button');
+        
+    }
 }
