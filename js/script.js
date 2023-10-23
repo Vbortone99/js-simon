@@ -21,4 +21,28 @@ function simonSays(){
 
     // Set Timer 
     const timer = 3000;
+    const row = document.querySelector('.row');
+    row.innerHTML= "";
+
+    // Visualizzare i numeri nella pagina e poi far si che siano da indovinare
+    while(numbersToGuess.length < 5){
+        const num = getRndInteger(min,max);
+        if(!numbersToGuess.includes(num)){   /*Se nei numeri da indovinare non è presente il numero generato, il numero generato va nell'array dei numeri da generare.*/
+            numbersToGuess.push(num);
+            /*crea funzione per inserire num nella col*/
+            let col = drawCol(num);
+            // Aggiungi la col alla row
+            row.append(col);
+        }
+    };
+
+    // FUNZIONE DRAWCOL
+    /**
+     * 
+     * @param{Number} num
+     * returns{Object}
+     */
+    function drawCol(num){
+        const col = document.createElement('div');
+    }
 }
